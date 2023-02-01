@@ -1,13 +1,14 @@
 const express = require("express");
 const connect = require("./config/db");
-
+const dataRoutes = require("./routes/dataRoutes");
 const app = express();
 app.use(express.json());
-
-connect();
+app.use(dataRoutes);
 
 const port = 8080;
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+connect().then(() => {
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
 });
