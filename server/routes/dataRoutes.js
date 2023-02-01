@@ -15,3 +15,5 @@ dataRoutes.get("/data", async (req, res) => {
     const rs = await getData(end_year, topic, region, sector, source);
     return res.send(rs);
   });
+
+  module.exports = dataRoutes;
